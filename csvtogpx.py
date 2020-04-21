@@ -1,34 +1,27 @@
-import lxml.etree
-import lxml.builder
 
-'''
-https://stackoverflow.com/questions/3605680/creating-a-simple-xml-file-using-python
-'''
-from pytz import timezone
+from xml.etree import ElementTree as ET
 
-output = open('test.xml', 'w', encoding='utf-8')
+output = open('test.xml', 'w')
 
 csvFile = 'Datum;Zeit;Zeitzone;Länge;Breite;Geschwindigkeit;Kurs;Adresse;Aufenthaltszeit;'
-europe = timezone('Europe/Berlin')
 
-
-with open("data.csv","r",encoding="iso-8859-14") as var_file:
+with open("/home/marcus/dev/data,csv","r",encoding="iso-8859-14") as var_file:
     var_data = var_file.readlines()[4:]
     for index, enumerate in enumerate(var_data):
         file_data = var_data[index].strip().split(';')
-        print(file_data[0],file_data[1],sep=" ")
 
-E = lxml.builder.ElementMaker()
-ROOT = E.root
-DOCu = E.docu
+        print(index, file_data[0], file_data[1], sep=" ")
 
-FIELD1 = E.field1
-FIELD2 = E.field2
 
-the_doc = ROOT(
-  DOCu(
-    FIELD1('some value1', name='blah1'),
-    FIELD2('some value2', name='blah2')
-  )
-)
-print (lxml.etree.tostring(the_doc, pretty_print=True))
+root = ET.Element("gpx")
+root.set("version", "version 1.1")
+trk = ET.SubElement(root, "trk")
+name = ET.SubElement(trk, "name")
+number = ET.SubElement(trk, "number")
+trkseg = ET.SubElement(trk, "trkseg")
+trkpt = ET.SubElement(trkseg, "trkpt")
+ele = ET.SubElement(trkpt, "ele")
+time = ET.SubElement(trkpt, "time")
+tree = ET.ElementTree(root)
+tree.write("test.xml")
+
