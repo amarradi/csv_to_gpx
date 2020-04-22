@@ -1,1 +1,18 @@
-<gpx version="version 1.1"><trk><name /><number /><trkseg><trkpt><ele /><time /></trkpt></trkseg></trk></gpx>
+<gpx version="version 1.1">
+    <trk>
+        <name>//Konvertierung mit Datenexport-Skript MEKKA am 01.04.2020 19:43:11 Uhr bearbeitet mit OelTool Version
+            1.6.0.0 am 01.04.2020 19:43:21 Uhr
+        </name>
+        <number/>
+        <trkseg>
+            <trkpt lon="8,7870633" lat="53,0204116">
+                <time>2020-03-31T20:06:23Z</time>
+                <ele>60</ele>
+            </trkpt>
+            <trkpt lon="8,7877816" lat="53,0202533">
+                <time>2020-03-31T20:06:26Z</time>
+                <ele>60</ele>
+            </trkpt>
+        </trkseg>
+    </trk>
+</gpx>
